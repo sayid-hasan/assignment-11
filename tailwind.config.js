@@ -2,7 +2,10 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    fontFamily: {
+      "font-oswald": `"Oswald", sans-serif`,
+      "font-merriweather": `"Merriweather", serif`,
+    },
   },
   plugins: [require("daisyui")],
 };
