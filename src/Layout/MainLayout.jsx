@@ -4,9 +4,11 @@ import Footer from "../shared/Footer/Footer";
 
 const MainLayout = () => {
   return (
-    <div>
-      <Nav></Nav>
-      <Outlet></Outlet>
+    <div className="font-font-merriweather">
+      <div className="max-w-[1250px] mx-auto ">
+        <Nav></Nav>
+        <Outlet></Outlet>
+      </div>
       <Footer></Footer>
     </div>
   );
