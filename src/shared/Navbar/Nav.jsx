@@ -4,14 +4,16 @@ import "./Navbar.css";
 import logo from "../../assets/Images/user.png";
 // import { useContext } from "react";
 // import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-awesome-button/dist/styles.css";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { useContext } from "react";
+import { motion } from "framer-motion";
+import fadeIn from "../../Utilities/varient";
 
 const Nav = () => {
-  // const { user, logoutUser, loading } = useContext(AuthContext);
-  const loading = false;
-  const user = false;
+  const { user, logoutUser, loading } = useContext(AuthContext);
 
   const navlinks = (
     <>
@@ -27,16 +29,18 @@ const Nav = () => {
       </li>
       <li className="flex">
         {" "}
-        <NavLink
-          to="/addblogs"
-          className={` ${({ isActive }) => {
-            console.log(isActive);
-          }}flex items-center px-4 rounded-none duration-75 pt-4 uppercase text-base text-[#3a3a3a] font-font-merriweather `}
-        >
-          Add Blogs
-        </NavLink>
+        {user && (
+          <NavLink
+            to="/addblogs"
+            className={` ${({ isActive }) => {
+              console.log(isActive);
+            }}flex items-center px-4 rounded-none duration-75 pt-4 uppercase text-base text-[#3a3a3a] font-font-merriweather `}
+          >
+            Add Blogs
+          </NavLink>
+        )}
       </li>
-      {
+      {user && (
         <>
           <li className="flex">
             {" "}
@@ -50,8 +54,8 @@ const Nav = () => {
             </NavLink>
           </li>
         </>
-      }
-      {
+      )}
+      {user && (
         <>
           <li className="flex">
             {" "}
@@ -65,17 +69,17 @@ const Nav = () => {
             </NavLink>
           </li>
         </>
-      }
+      )}
     </>
   );
 
-  // const handleLogout = () => {
-  //   logoutUser()
-  //     .then(() => {
-  //       toast("logged out successfully");
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+  const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        toast("logged out successfully");
+      })
+      .catch((err) => console.log(err));
+  };
 
   const buttonProfile = (
     <>
@@ -108,7 +112,7 @@ const Nav = () => {
                       </Link>
                     </li>
                     <li>
-                      <button>Log out</button>
+                      <button onClick={handleLogout}>Log out</button>
                     </li>
                   </ul>
                 </div>

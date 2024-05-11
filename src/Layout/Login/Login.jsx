@@ -3,18 +3,22 @@ import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-// import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
-// import { toast } from "react-toastify";
+
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet";
 import login from "../../assets/Images/login2.svg";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { motion } from "framer-motion";
+import fadeIn from "../../Utilities/varient";
+
 const Login = () => {
-  //   const { loginUser, loginWithGithub, logInwithGoogle } =
-  //     useContext(AuthContext);
+  const { loginUser, loginWithGithub, logInwithGoogle } =
+    useContext(AuthContext);
 
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  //   const location = useLocation();
+  const location = useLocation();
   //console.log(location);
 
   const [showPass, setShowPass] = useState(false);
@@ -26,49 +30,50 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) => {
     const { email, password } = data;
-    console.log(email, password);
     // login
 
     //login
 
-    //     loginUser(email, password)
-    //       .then(() => {
-    //         toast.success("loggeg in successfully");
+    loginUser(email, password)
+      .then(() => {
+        toast.success("loggeg in successfully");
 
-    //         // redirect to location
-    //         navigate(location?.state || "/");
-    //       })
-    //       .catch(() => {
-    //         toast.error("incorrect email or password");
-    //       });
-    //   };
+        // redirect to location
+        navigate(location?.state || "/");
+      })
+      .catch(() => {
+        toast.error("incorrect email or password");
+      });
+  };
 
-    // soscial login
+  // soscial login
 
-    //   const handlegoogleLogin = () => {
-    //     logInwithGoogle()
-    //       .then(() => {
-    //         //const user = result.user;
-    //         // redirect to location
-    //         navigate(location?.state || "/");
-    //         //console.log(user);
-    //       })
-    //       .catch((error) => {
-    //         // Handle Errors here.
-    //         console.log(error);
-    //       });
-    //   };
-    //   const handlegithubLogin = () => {
-    //     loginWithGithub()
-    //       .then(() => {
-    //         //const user = result.user;
-    //         //console.log(user);
-    //         // redirect to location
-    //         navigate(location?.state || "/");
-    //       })
-    //       .catch(() => {
-    //         // Handle Errors here.
-    //       });
+  const handlegoogleLogin = () => {
+    logInwithGoogle()
+      .then((result) => {
+        //const user = result.user;
+        toast.success(`welcome back ${result.user.displayName}`);
+        // redirect to location
+        navigate(location?.state || "/");
+        //console.log(user);
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        console.log(error);
+      });
+  };
+  const handlegithubLogin = () => {
+    loginWithGithub()
+      .then((result) => {
+        //const user = result.user;
+        toast.success(`welcome back ${result.user.displayName}`);
+        //console.log(user);
+        // redirect to location
+        navigate(location?.state || "/");
+      })
+      .catch(() => {
+        // Handle Errors here.
+      });
   };
 
   useEffect(() => {
@@ -84,8 +89,14 @@ const Login = () => {
       <Helmet>
         <title>Login</title>
       </Helmet>
-      <div className="flex flex-col md:flex-row  md:justify-between ">
-        <div className="w-full my-5  md:w-1/2 p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
+      <div className="flex  flex-col-reverse md:flex-row  md:justify-between ">
+        <motion.div
+          variants={fadeIn("right", 0.2)}
+          initial={"hidden"}
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className="w-full my-5  md:w-1/2 p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800"
+        >
           <h1 className="text-2xl font-font-oswald text-[#F26767] font-bold text-center">
             Login
           </h1>
@@ -152,9 +163,9 @@ const Login = () => {
           </div>
           <div className="flex justify-center space-x-4">
             <button
-              //   onClick={() => {
-              //     handlegoogleLogin();
-              //   }}
+              onClick={() => {
+                handlegoogleLogin();
+              }}
               aria-label="Log in with Google"
               className="p-3 rounded-sm"
             >
@@ -170,9 +181,9 @@ const Login = () => {
             </button>
 
             <button
-              //   onClick={() => {
-              //     handlegithubLogin();
-              //   }}
+              onClick={() => {
+                handlegithubLogin();
+              }}
               aria-label="Log in with GitHub"
               className="p-3 rounded-sm"
             >
@@ -196,10 +207,20 @@ const Login = () => {
               Sign up
             </Link>
           </p>
-        </div>
-        <div className="w-1/2">
-          <img src={login} className="h-[600px] w-[600px]" alt="" />
-        </div>
+        </motion.div>
+        <motion.div
+          variants={fadeIn("left", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className="md:w-1/2 w-full"
+        >
+          <img
+            src={login}
+            className="md:h-[600px] md:w-[600px] w-full aspect-auto"
+            alt=""
+          />
+        </motion.div>
         {/* <ToastContainer></ToastContainer> */}
       </div>
     </div>
