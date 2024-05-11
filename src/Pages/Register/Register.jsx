@@ -1,7 +1,7 @@
 //import { data } from "autoprefixer";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -13,7 +13,8 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import fadeIn from "../../Utilities/varient";
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { loading, user, setUser, createUser, updateUserProfile } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
   const {
@@ -37,6 +38,8 @@ const Register = () => {
           .then(() => {})
           .catch((err) => console.log(err));
 
+        setUser({ ...user, displayName: name, photoURL: image });
+
         navigate(from);
       })
       .catch(() => {
@@ -51,7 +54,7 @@ const Register = () => {
       subscription.unsubscribe();
     };
   }, [watch]);
-
+  if (user && loading) return <Navigate to={"/"}></Navigate>;
   return (
     <div className="max-w-7xl mx-auto ">
       <Helmet>

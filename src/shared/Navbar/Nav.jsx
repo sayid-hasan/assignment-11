@@ -9,8 +9,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-awesome-button/dist/styles.css";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { useContext } from "react";
-import { motion } from "framer-motion";
-import fadeIn from "../../Utilities/varient";
 
 const Nav = () => {
   const { user, logoutUser, loading } = useContext(AuthContext);
@@ -39,6 +37,17 @@ const Nav = () => {
             Add Blogs
           </NavLink>
         )}
+      </li>
+      <li className="flex">
+        {" "}
+        <NavLink
+          to="/allblogs"
+          className={` ${({ isActive }) => {
+            console.log(isActive);
+          }}flex items-center px-4 rounded-none duration-75 pt-4 uppercase text-base text-[#3a3a3a] font-font-merriweather `}
+        >
+          All Blogs
+        </NavLink>
       </li>
       {user && (
         <>

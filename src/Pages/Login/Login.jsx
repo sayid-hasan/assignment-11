@@ -1,7 +1,7 @@
 //import { data } from "autoprefixer";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { toast } from "react-toastify";
@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import fadeIn from "../../Utilities/varient";
 
 const Login = () => {
-  const { loginUser, loginWithGithub, logInwithGoogle } =
+  const { user, loading, loginUser, loginWithGithub, logInwithGoogle } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -84,6 +84,7 @@ const Login = () => {
       subscription.unsubscribe();
     };
   }, [watch]);
+  if (user || loading) return <Navigate to={"/"}></Navigate>;
   return (
     <div className="max-w-7xl mx-auto ">
       <Helmet>
