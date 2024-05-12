@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import fadeIn from "../../../Utilities/varient";
 const Pricing = () => {
   return (
-    <div className="mx-auto ">
+    <div>
       <section className="bg-white dark:bg-gray-900">
         <div className=" px-6 py-8 mx-auto">
           <motion.div
