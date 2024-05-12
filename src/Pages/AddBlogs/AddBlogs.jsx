@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import fadeIn from "../../Utilities/varient";
 import { motion } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
+
 import useAxios from "../../hooks/useAxios";
 const AddBlogs = () => {
   const axiosNonSecure = useAxios();
@@ -34,7 +34,6 @@ const AddBlogs = () => {
     register,
     handleSubmit,
     watch,
-    reset,
 
     formState: { errors },
   } = useForm();
@@ -79,7 +78,7 @@ const AddBlogs = () => {
         <title>Add Blogs</title>
       </Helmet>
       <motion.div
-        variants={fadeIn("right", 0.2)}
+        variants={fadeIn("right", 0.1)}
         initial={"hidden"}
         whileInView={"show"}
         viewport={{ once: false, amount: 0.7 }}
