@@ -29,7 +29,7 @@ const Blogs = () => {
   }
   if (isLoading) return <Skeleton count={5}></Skeleton>;
   return (
-    <div>
+    <div className="mx-auto">
       <motion.div
         variants={fadeIn("right", 0.2)}
         initial={"hidden"}

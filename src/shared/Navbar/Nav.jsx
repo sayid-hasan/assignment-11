@@ -172,7 +172,7 @@ const Nav = () => {
           </div>
           <Link
             to="/"
-            className="btn btn-ghost   animate__animated animate__tada text-3xl md:text-4xl font-bold  bg-opacity-70 py-5 h-auto min-h-0  "
+            className="btn btn-ghost   text-3xl md:text-4xl font-bold  bg-opacity-70 py-5 h-auto min-h-0  "
           >
             <h2 className="font-font-oswald">
               <span className="text-[#f26767] text-4xl">B</span>loog

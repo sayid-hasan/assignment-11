@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import fadeIn from "../../../Utilities/varient";
 const Pricing = () => {
   return (
-    <div>
+    <div className="mx-auto ">
       <section className="bg-white dark:bg-gray-900">
-        <div className="container px-6 py-8 mx-auto">
+        <div className=" px-6 py-8 mx-auto">
           <motion.div
             variants={fadeIn("left", 0.2)}
             initial={"hidden"}

@@ -13,7 +13,7 @@ const Blog = ({ blog }) => {
   } = blog;
   return (
     <div>
-      <div className="w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+      <div className=" max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
         <motion.img
           variants={fadeIn("right", 0)}
           initial={"hidden"}
