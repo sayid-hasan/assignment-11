@@ -8,7 +8,7 @@ const Comment = ({ commentObj }) => {
           <img
             src={photoURL}
             alt=""
-            className="self-center flex-shrink-0 w-14 h-14 md:w-24 md:h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-300"
+            className="self-center flex-shrink-0 w-14 h-14 md:w-20 md:h-20 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-300"
           />
           <div className="flex flex-col gap-1 ">
             <h4 className="md:text-lg text-base font-semibold  text-center md:text-left">

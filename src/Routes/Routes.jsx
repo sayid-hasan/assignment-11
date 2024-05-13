@@ -8,6 +8,7 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import PrivateRoutes from "./PrivateRoutes";
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
+import UpdateBlog from "../Pages/UpdateBlog/UpdateBlog";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,9 +37,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/blogs/:id",
+        element: <BlogDetails></BlogDetails>,
+      },
+      {
+        path: "/updateblogs",
         element: (
           <PrivateRoutes>
-            <BlogDetails></BlogDetails>
+            <UpdateBlog></UpdateBlog>
           </PrivateRoutes>
         ),
       },
