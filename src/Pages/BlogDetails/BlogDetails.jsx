@@ -49,11 +49,12 @@ const BlogDetails = () => {
     },
     onSuccess: () => {
       toast.success("data send on database");
+      refetch();
     },
   });
 
   // tanstack for getting comments based on blog_id
-  const { data: comments = [] } = useQuery({
+  const { data: comments = [], refetch } = useQuery({
     queryFn: async () => {
       const { data } = await axiosNonSecure.get(`/allcomment/${id}`);
       return data;
@@ -104,7 +105,9 @@ const BlogDetails = () => {
           </div>
           {/* 2 */}
           <div className="md:w-1/2 w-full">
-            <h1 className="text-2xl md:text-3xl  font-bold">{blog_title}</h1>
+            <h1 className="text-2xl md:text-3xl leading-loose space-y-2  font-bold">
+              {blog_title}
+            </h1>
             <span className="block text-xs font-medium tracking-widest uppercase text-[#F26767] mt-5">
               {category_name}
             </span>
@@ -138,7 +141,7 @@ const BlogDetails = () => {
           </div>
         </div>
         {/* text area for comment */}
-        <div className="my-5 space-y-4">
+        <div className="my-5 px-2 space-y-4">
           <form onSubmit={handleComment} className="my-5 space-y-4">
             {user.email === user_email ? (
               <>
