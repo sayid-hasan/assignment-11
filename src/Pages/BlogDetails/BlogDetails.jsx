@@ -48,7 +48,7 @@ const BlogDetails = () => {
       console.log(data);
     },
     onSuccess: () => {
-      toast.success("data send on database");
+      toast.success("thanks for your opinion");
       refetch();
     },
   });
@@ -131,12 +131,20 @@ const BlogDetails = () => {
               >
                 Go Back
               </Link>
-              <Link
-                to="/"
-                className=" px-6 border border-[#f26767] hover:text-white text-sm hover:bg-[#f26767] hover:border-[#f26767] py-3 font-semibold rounded bg-transparent text-black "
-              >
-                update
-              </Link>
+
+              {user.email === user_email ? (
+                <>
+                  {" "}
+                  <Link
+                    to="/updateblogs"
+                    className=" px-6 border border-[#f26767] hover:text-white text-sm hover:bg-[#f26767] hover:border-[#f26767] py-3 font-semibold rounded bg-transparent text-black "
+                  >
+                    update
+                  </Link>
+                </>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
