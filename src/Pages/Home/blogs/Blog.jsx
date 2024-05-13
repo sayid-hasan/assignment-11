@@ -1,16 +1,19 @@
 import PropTypes from "prop-types";
 import fadeIn from "../../../Utilities/varient";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Blog = ({ blog }) => {
   const {
     blog_title,
+    _id,
 
     image,
     category_name,
 
     short_description,
   } = blog;
+  console.log(_id);
   return (
     <div>
       <div className=" max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
@@ -65,9 +68,12 @@ const Blog = ({ blog }) => {
             viewport={{ once: false, amount: 0.7 }}
             className="flex  justify-between  items-center mt-4 text-gray-700 dark:text-gray-200"
           >
-            <button className="px-6 border border-transparent hover:text-black text-sm hover:bg-transparent hover:border hover:border-[#f26767] py-3 font-semibold rounded bg-[#F26767] text-white">
+            <Link
+              to={`/blogs/${_id}`}
+              className="px-6 border border-transparent hover:text-black text-sm hover:bg-transparent hover:border hover:border-[#f26767] py-3 font-semibold rounded bg-[#F26767] text-white"
+            >
               See Details
-            </button>
+            </Link>
             <button className="px-6 border border-[#f26767] hover:text-white text-sm hover:bg-[#f26767] hover:border-[#f26767] py-3 font-semibold rounded bg-transparent text-black ">
               Wishlist
             </button>
