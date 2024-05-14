@@ -27,7 +27,10 @@ const Blog = ({ blog }) => {
 
   const { mutateAsync } = useMutation({
     mutationFn: async ({ wishlistData }) => {
-      const { data } = await axiosNonSecure.post(`/wishlist`, wishlistData);
+      const { data } = await axiosNonSecure.post(
+        `/wishlist?email=${user.email}`,
+        wishlistData
+      );
       console.log(data);
     },
     onSuccess: () => {

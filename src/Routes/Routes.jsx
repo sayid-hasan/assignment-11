@@ -9,6 +9,7 @@ import Login from "../Pages/Login/Login";
 import PrivateRoutes from "./PrivateRoutes";
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 import UpdateBlog from "../Pages/UpdateBlog/UpdateBlog";
+import Wishlists from "../Pages/Wishlists/Wishlists";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <UpdateBlog></UpdateBlog>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/wishlist",
+        element: (
+          <PrivateRoutes>
+            <Wishlists></Wishlists>
           </PrivateRoutes>
         ),
       },
