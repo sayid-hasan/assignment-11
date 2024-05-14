@@ -123,7 +123,7 @@ const BlogDetails = () => {
             >
               {long_description}
             </div>
-            {/* back to homepage and saved to Bookmarks */}
+            {/* back to homepage and update for owner */}
             <div className="flex justify-between">
               <Link
                 to="/"
@@ -136,7 +136,7 @@ const BlogDetails = () => {
                 <>
                   {" "}
                   <Link
-                    to="/updateblogs"
+                    to={`/updateblogs/${id}`}
                     className=" px-6 border border-[#f26767] hover:text-white text-sm hover:bg-[#f26767] hover:border-[#f26767] py-3 font-semibold rounded bg-transparent text-black "
                   >
                     update
