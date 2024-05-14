@@ -2,18 +2,54 @@ import PropTypes from "prop-types";
 import fadeIn from "../../../Utilities/varient";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import useAxios from "../../../hooks/useAxios";
 
 const Blog = ({ blog }) => {
+  const axiosNonSecure = useAxios();
+  // getting current user
+  const { user } = useContext(AuthContext);
+  // console.log(user);
   const {
     blog_title,
     _id,
-
+    user_email,
     image,
     category_name,
 
     short_description,
   } = blog;
-  console.log(_id);
+  // console.log(_id);
+  // sending data on post collection with tanstack
+
+  const { mutateAsync } = useMutation({
+    mutationFn: async ({ wishlistData }) => {
+      const { data } = await axiosNonSecure.post(`/wishlist`, wishlistData);
+      console.log(data);
+    },
+    onSuccess: () => {
+      toast.success("added on wishlist");
+    },
+  });
+
+  // wishlist handling
+  const handleWishlist = () => {
+    const wishlistData = {
+      blog_title,
+      id: _id,
+      image,
+      wishListerEmail: user.email,
+      category_name,
+      short_description,
+      user_email,
+    };
+    // console.log(wishlistData);
+    // sending data on wishlist collection through server
+    mutateAsync({ wishlistData });
+  };
   return (
     <div>
       <div className=" max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
@@ -74,7 +110,10 @@ const Blog = ({ blog }) => {
             >
               See Details
             </Link>
-            <button className="px-6 border border-[#f26767] hover:text-white text-sm hover:bg-[#f26767] hover:border-[#f26767] py-3 font-semibold rounded bg-transparent text-black ">
+            <button
+              onClick={handleWishlist}
+              className="px-6 border border-[#f26767] hover:text-white text-sm hover:bg-[#f26767] hover:border-[#f26767] py-3 font-semibold rounded bg-transparent text-black "
+            >
               Wishlist
             </button>
           </motion.div>
