@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import fadeIn from "../../Utilities/varient";
 import { motion } from "framer-motion";
-const Wishlist = ({ wishlist }) => {
+
+const Wishlist = ({ wishlist, handleDelete }) => {
   const {
     blog_title,
     id,
@@ -13,9 +14,6 @@ const Wishlist = ({ wishlist }) => {
 
     short_description,
   } = wishlist;
-  const handleDelete = (idx) => {
-    console.log(idx);
-  };
 
   return (
     <div>
@@ -95,5 +93,6 @@ const Wishlist = ({ wishlist }) => {
 };
 Wishlist.propTypes = {
   wishlist: PropTypes.object,
+  handleDelete: PropTypes.func,
 };
 export default Wishlist;

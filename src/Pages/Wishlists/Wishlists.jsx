@@ -14,6 +14,7 @@ const Wishlists = () => {
     isLoading,
     isError,
     error,
+    refetch,
   } = useQuery({
     queryFn: () => getData(),
     queryKey: ["wishlist"],
@@ -24,6 +25,14 @@ const Wishlists = () => {
     const { data } = await axiosNonSecure.get(`/wishlists?email=${user.email}`);
     return data;
   };
+
+  // deleting wishlist
+  const handleDelete = async (idx) => {
+    const { data } = await axiosNonSecure.delete(`/wishlist/${idx}`);
+    console.log(data);
+    refetch();
+  };
+
   console.log(wishlists, user);
   if (isError || error) {
     console.log(error);
@@ -38,7 +47,11 @@ const Wishlists = () => {
       </div>
       <div className="grid lg:mt-16 mt-10 mb-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {wishlists.map((wishlist) => (
-          <Wishlist key={wishlist._id} wishlist={wishlist}></Wishlist>
+          <Wishlist
+            key={wishlist._id}
+            wishlist={wishlist}
+            handleDelete={handleDelete}
+          ></Wishlist>
         ))}
       </div>
     </div>
