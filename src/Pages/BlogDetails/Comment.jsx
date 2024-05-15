@@ -1,8 +1,15 @@
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
+import fadeIn from "../../Utilities/varient";
 const Comment = ({ commentObj }) => {
   const { comment, displayName, photoURL } = commentObj;
   return (
-    <div>
+    <motion.div
+      variants={fadeIn("right", 0.2)}
+      initial={"hidden"}
+      whileInView={"show"}
+      viewport={{ once: false, amount: 0.7 }}
+    >
       <div className="px-2 flex items-center my-5 dark:bg-gray-50 dark:text-gray-800">
         <div className="flex flex-row items-center gap-2 space-y-4 md:space-y-0 md:space-x-2 md:flex-row">
           <img
@@ -18,7 +25,7 @@ const Comment = ({ commentObj }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 Comment.propTypes = {

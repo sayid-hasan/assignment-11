@@ -15,9 +15,11 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import useAxios from "../../hooks/useAxios";
 import Skeleton from "react-loading-skeleton";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const UpdateBlog = () => {
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
   const axiosNonSecure = useAxios();
   // getting id for fetching data
   const { id } = useParams();
@@ -36,7 +38,7 @@ const UpdateBlog = () => {
 
   // data to fetch
   const getData = async () => {
-    const { data } = await axiosNonSecure.get(`/blogs/${id}`);
+    const { data } = await axiosSecure.get(`/blogs/${id}?email=${user.email}`);
     return data;
   };
   console.log(blog);

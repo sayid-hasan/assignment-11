@@ -7,6 +7,8 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { useContext } from "react";
 import { toast } from "react-toastify";
 import Comment from "./Comment";
+import { motion } from "framer-motion";
+import fadeIn from "../../Utilities/varient";
 
 const BlogDetails = () => {
   const { user } = useContext(AuthContext);
@@ -92,19 +94,43 @@ const BlogDetails = () => {
       </Helmet>
 
       <div className="font-roboto mt-14 mb-12">
-        <h2 className="text-center  text-[#F26766] font-font-oswald font-bold text-2xl md:text-4xl mb-5 ">
+        <motion.h2
+          variants={fadeIn("right", 0.2)}
+          initial={"hidden"}
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className="text-center  text-[#F26766] font-font-oswald font-bold text-2xl md:text-4xl mb-5 "
+        >
           Blog Details
-        </h2>
-        <div className="md:p-6 px-2 gap-7   flex md:flex-row flex-col  md:items-center ">
+        </motion.h2>
+        <motion.div
+          variants={fadeIn("right", 0.1)}
+          initial={"hidden"}
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className="md:p-6 px-2 gap-7   flex md:flex-row flex-col  md:items-center "
+        >
           {/* 1 */}
-          <div className=" w-full md:w-1/2 flex justify-center ">
+          <motion.div
+            variants={fadeIn("right", 0.2)}
+            initial={"hidden"}
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            className=" w-full md:w-1/2 flex justify-center "
+          >
             <img
               src={image}
               className="object-contain object-center w-full h-auto md:h-[550px] rounded-lg"
             />
-          </div>
+          </motion.div>
           {/* 2 */}
-          <div className="md:w-1/2 w-full">
+          <motion.div
+            variants={fadeIn("left", 0.2)}
+            initial={"hidden"}
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            className="md:w-1/2 w-full"
+          >
             <h1 className="text-2xl md:text-3xl leading-loose space-y-2  font-bold">
               {blog_title}
             </h1>
@@ -146,8 +172,8 @@ const BlogDetails = () => {
                 ""
               )}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         {/* text area for comment */}
         <div className="my-5 px-2 space-y-4">
           <form onSubmit={handleComment} className="my-5 space-y-4">
