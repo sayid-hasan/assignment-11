@@ -6,10 +6,12 @@ import { motion } from "framer-motion";
 
 import Allblog from "./Allblog";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Allblogs = () => {
   const [filter, setFilter] = useState("");
+  const [search, setSearch] = useState("");
+  const [searchText, setSearchText] = useState("");
   const axiosNonSecure = useAxios();
   // tanstack
   const {
@@ -19,14 +21,16 @@ const Allblogs = () => {
     error,
   } = useQuery({
     queryFn: () => getData(),
-    queryKey: ["allblogs", filter],
+    queryKey: ["allblogs", filter, search],
   });
   console.log(blogs);
 
   // data to fetch
 
   const getData = async () => {
-    const { data } = await axiosNonSecure.get(`/allblogs?filter=${filter}`);
+    const { data } = await axiosNonSecure.get(
+      `/allblogs?filter=${filter}&search=${search}`
+    );
     return data;
   };
 
@@ -39,7 +43,8 @@ const Allblogs = () => {
   // search by title
   const handleSearch = (e) => {
     if (e.code === "Enter") {
-      console.log(e.target.value);
+      e.preventDefault();
+      setSearch(searchText);
     }
   };
 
@@ -123,6 +128,10 @@ const Allblogs = () => {
               onKeyDown={handleSearch}
               type="text"
               name="search"
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+              value={searchText}
               className="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
               placeholder="Search"
             />
