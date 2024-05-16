@@ -12,6 +12,7 @@ import fadeIn from "../../Utilities/varient";
 
 const BlogDetails = () => {
   const { user } = useContext(AuthContext);
+
   const axiosNonSecure = useAxios();
   const { id } = useParams();
   console.log(id);

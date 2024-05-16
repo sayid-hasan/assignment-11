@@ -19,6 +19,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   const location = useLocation();
+  console.log(location);
+
   //console.log(location);
 
   const [showPass, setShowPass] = useState(false);
@@ -84,7 +86,7 @@ const Login = () => {
       subscription.unsubscribe();
     };
   }, [watch]);
-  if (user || loading) return <Navigate to={"/"}></Navigate>;
+
   return (
     <div className="max-w-7xl mx-auto ">
       <Helmet>

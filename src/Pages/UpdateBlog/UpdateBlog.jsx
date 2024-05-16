@@ -11,7 +11,7 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import fadeIn from "../../Utilities/varient";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import useAxios from "../../hooks/useAxios";
 import Skeleton from "react-loading-skeleton";
 import { toast } from "react-toastify";
@@ -19,8 +19,10 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const UpdateBlog = () => {
   const { user } = useContext(AuthContext);
+  const ownerImg = user.photoURL;
   const axiosSecure = useAxiosSecure();
   const axiosNonSecure = useAxios();
+  // const queryClient = useQueryClient();
   // getting id for fetching data
   const { id } = useParams();
   // getting data from previous page throug props for a single blog
@@ -28,12 +30,12 @@ const UpdateBlog = () => {
   const {
     data: blog = [],
     isLoading,
+    refetch,
     isError,
     error,
-    refetch,
   } = useQuery({
     queryFn: () => getData(),
-    queryKey: ["blogUp"],
+    queryKey: ["blogUp", id],
   });
 
   // data to fetch
@@ -60,12 +62,14 @@ const UpdateBlog = () => {
     onSuccess: () => {
       toast.success("data updated successfully");
       refetch();
+      // queryClient.invalidateQueries({ queryKey: ["blogUp", "blog"] });
     },
   });
   const onSubmit = (data) => {
     const {
       user_email,
       blog_title,
+
       user_name,
       image,
       category_name,
@@ -77,6 +81,7 @@ const UpdateBlog = () => {
     const blogdata = {
       user_email,
       blog_title,
+      owner_img: ownerImg,
       user_name,
       image,
       category_name,
@@ -376,7 +381,7 @@ const UpdateBlog = () => {
                 viewport={{ once: false, amount: 0.7 }}
                 className="block w-full p-3 text-center rounded-lg bg-[#F26767]  text-white font-bold  dark:text-gray-50 dark:bg-violet-600"
               >
-                Add
+                Update
               </motion.button>
             </form>
           </div>
