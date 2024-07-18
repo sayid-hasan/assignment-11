@@ -16,6 +16,7 @@ import useAxios from "../../hooks/useAxios";
 const AddBlogs = () => {
   const axiosNonSecure = useAxios();
   const { user } = useContext(AuthContext);
+  const ownerImg = user.photoURL;
 
   const { mutateAsync } = useMutation({
     mutationFn: async ({ blog }) => {
@@ -55,7 +56,7 @@ const AddBlogs = () => {
       user_name,
       image,
       category_name,
-
+      owner_img: ownerImg,
       short_description,
       long_description,
       createAt,

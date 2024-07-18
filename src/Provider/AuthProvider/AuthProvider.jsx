@@ -11,7 +11,8 @@ import {
 } from "firebase/auth";
 
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+
+import useAxios from "../../hooks/useAxios";
 
 export const AuthContext = createContext();
 
@@ -19,7 +20,7 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  const axiosSecure = useAxiosSecure();
+  const axiosNonSecure = useAxios();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const createUser = (email, pass) => {
@@ -28,28 +29,33 @@ const AuthProvider = ({ children }) => {
   };
 
   // onAuthStateChange
+  // ONAUTH STATE CHANGE
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      //console.log(currentUser);
-      const userEmail = currentUser?.email || user?.email;
-      const loggedEmail = { email: userEmail };
+    const unsubscrube = onAuthStateChanged(auth, (currentUser) => {
+      console.log("current User ", currentUser);
       setUser(currentUser);
-      console.log("current User", currentUser);
       if (currentUser) {
-        axiosSecure.post("/jwt", loggedEmail).then((res) => {
-          console.log(res.data);
+        console.log(currentUser);
+
+        const userInfo = { email: currentUser?.email };
+        // sent useremail and get token in response and save it in 1 cookies 2. or localstorage or state/memory
+        axiosNonSecure.post("/jwt", userInfo).then((res) => {
+          // console.log("token", res.data.token);
+          if (res.data.token) {
+            localStorage.setItem("access-token", res?.data?.token);
+            setLoading(false);
+          }
         });
       } else {
-        axiosSecure.post("/logout", loggedEmail).then((res) => {
-          console.log(res.data);
-        });
+        //erase the token from locastorage or cookie or caching or memory
+        localStorage.removeItem("access-token");
+        setLoading(false);
       }
-      setLoading(false);
     });
     return () => {
-      unsubscribe();
+      return unsubscrube();
     };
-  }, []);
+  }, [axiosNonSecure]);
 
   // update propfile
 

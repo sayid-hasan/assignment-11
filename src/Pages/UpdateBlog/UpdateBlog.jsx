@@ -11,7 +11,7 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import fadeIn from "../../Utilities/varient";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import useAxios from "../../hooks/useAxios";
 import Skeleton from "react-loading-skeleton";
 import { toast } from "react-toastify";

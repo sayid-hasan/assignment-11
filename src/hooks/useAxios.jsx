@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosNonSecure = axios.create({
-  baseURL: "https://assignment-11-blogys-server.vercel.app",
+  baseURL: "http://localhost:5000",
 });
 const useAxios = () => {
   return axiosNonSecure;

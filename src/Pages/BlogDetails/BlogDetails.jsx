@@ -9,11 +9,13 @@ import { toast } from "react-toastify";
 import Comment from "./Comment";
 import { motion } from "framer-motion";
 import fadeIn from "../../Utilities/varient";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const BlogDetails = () => {
   const { user } = useContext(AuthContext);
 
   const axiosNonSecure = useAxios();
+  const axiosSecure = useAxiosSecure();
   const { id } = useParams();
   console.log(id);
   // tanstack for getting single data
@@ -29,7 +31,7 @@ const BlogDetails = () => {
 
   // data to fetch
   const getData = async () => {
-    const { data } = await axiosNonSecure.get(`/blogs/${id}`);
+    const { data } = await axiosSecure.get(`/blogs/${id}`);
     return data;
   };
   // destructuring object data from data that gotten from database
@@ -59,7 +61,7 @@ const BlogDetails = () => {
   // tanstack for getting comments based on blog_id
   const { data: comments = [], refetch } = useQuery({
     queryFn: async () => {
-      const { data } = await axiosNonSecure.get(`/allcomment/${id}`);
+      const { data } = await axiosSecure.get(`/allcomment/${id}`);
       return data;
     },
     queryKey: ["comment"],

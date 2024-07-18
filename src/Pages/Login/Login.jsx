@@ -1,7 +1,7 @@
 //import { data } from "autoprefixer";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { toast } from "react-toastify";
@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import fadeIn from "../../Utilities/varient";
 
 const Login = () => {
-  const { user, loading, loginUser, loginWithGithub, logInwithGoogle } =
+  const { loginUser, loginWithGithub, logInwithGoogle } =
     useContext(AuthContext);
 
   const navigate = useNavigate();

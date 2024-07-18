@@ -6,6 +6,7 @@ import Wishlist from "./Wishlist";
 
 const Wishlists = () => {
   const { user } = useContext(AuthContext);
+  console.log(user);
 
   const axiosNonSecure = useAxios();
   // tanstack
@@ -22,7 +23,9 @@ const Wishlists = () => {
 
   // data to fetch
   const getData = async () => {
-    const { data } = await axiosNonSecure.get(`/wishlists?email=${user.email}`);
+    const { data } = await axiosNonSecure.get(
+      `/wishlists?email=${user?.email}`
+    );
     return data;
   };
 
