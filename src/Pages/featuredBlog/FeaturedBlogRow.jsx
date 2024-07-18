@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import profile from "../../assets/Images/user.png";
 
 const FeaturedBlogRow = ({ feturedRow, id }) => {
   const { blog_title, user_name, ownerImg } = feturedRow;
@@ -18,7 +19,7 @@ const FeaturedBlogRow = ({ feturedRow, id }) => {
         <td className="px-3 py-2 text-base hidden md:block">
           <div className="avatar">
             <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src={ownerImg} />
+              <img src={ownerImg || profile} />
             </div>
           </div>
         </td>

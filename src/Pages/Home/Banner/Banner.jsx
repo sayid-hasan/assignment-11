@@ -36,11 +36,11 @@ const Banner = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className=" relative">
-              <div className="h-[600px] w-full">
+            <div className=" relative rounded-md">
+              <div className=" w-full object-contain">
                 {" "}
                 <img
-                  src={"https://i.ibb.co/7y3nGvQ/banner1.jpg"}
+                  src={"https://i.imgur.com/VmZfPxM.jpg"}
                   className="w-full"
                   alt=""
                 />
@@ -82,10 +82,10 @@ const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className=" relative">
-              <div className="h-[600px] w-full">
+              <div className=" w-full">
                 {" "}
                 <img
-                  src={"https://i.ibb.co/dM7bMLy/banner2.jpg"}
+                  src={"https://i.imgur.com/nMEIi6v.jpg"}
                   className="w-full"
                   alt=""
                 />
@@ -129,7 +129,7 @@ const Banner = () => {
               <div className="h-[600px] w-full">
                 {" "}
                 <img
-                  src={"https://i.ibb.co/4fqy45J/banner3.jpg"}
+                  src={"https://i.imgur.com/sX7EvLo.jpg"}
                   className="w-full"
                   alt=""
                 />
