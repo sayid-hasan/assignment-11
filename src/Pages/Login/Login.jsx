@@ -88,28 +88,34 @@ const Login = () => {
   }, [watch]);
 
   return (
-    <div className="max-w-7xl mx-auto ">
+    <div className="max-w-7xl mx-auto overflow-x-hidden ">
       <Helmet>
         <title>Login</title>
       </Helmet>
       <div className="flex  flex-col-reverse md:flex-row  md:justify-between ">
-        <motion.div
-          variants={fadeIn("right", 0.2)}
-          initial={"hidden"}
-          whileInView={"show"}
-          viewport={{ once: false, amount: 0.7 }}
-          className="w-full my-5  md:w-1/2 p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800"
-        >
-          <h1 className="text-2xl font-font-oswald text-[#F26767] font-bold text-center">
+        <div className="w-full my-5  md:w-1/2 p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
+          <motion.h1
+            variants={fadeIn("right", 0.051)}
+            initial={"hidden"}
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            className="text-2xl font-font-oswald text-[#F26767] font-bold text-center"
+          >
             Login
-          </h1>
+          </motion.h1>
           <form
             onSubmit={handleSubmit(onSubmit)}
             noValidate=""
             action=""
             className="space-y-6"
           >
-            <div className="space-y-1 text-sm">
+            <motion.div
+              variants={fadeIn("right", 0.1)}
+              initial={"hidden"}
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className="space-y-1 text-sm"
+            >
               <label htmlFor="email" className="block dark:text-gray-600">
                 Email
               </label>
@@ -121,8 +127,14 @@ const Login = () => {
                 placeholder="Email"
                 className="w-full px-4 py-3 rounded-md focus:border-[#F26767] dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
               />
-            </div>
-            <div className="space-y-1 text-sm">
+            </motion.div>
+            <motion.div
+              variants={fadeIn("right", 0.15)}
+              initial={"hidden"}
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className="space-y-1 text-sm"
+            >
               <label htmlFor="password" className="block dark:text-gray-600">
                 Password
               </label>
@@ -150,10 +162,16 @@ const Login = () => {
                 {errors.password?.type === "pattern" &&
                   "Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long"}
               </span>
-            </div>
-            <button className="block w-full p-3 text-center rounded-lg bg-[#F26767]  text-white font-bold  dark:text-gray-50 dark:bg-violet-600">
-              Sign in
-            </button>
+            </motion.div>
+            <motion.button
+              variants={fadeIn("right", 0.2)}
+              initial={"hidden"}
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className="block w-full p-3 text-center border border-transparent rounded-lg bg-[#F26767]  text-white font-bold  dark:text-gray-50 hover:bg-transparent hover:text-black transition-all duration-300 hover:border-[#F26767] dark:bg-violet-600"
+            >
+              Sign In
+            </motion.button>
           </form>
           <div className="flex items-center pt-4 space-x-1">
             <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
@@ -210,12 +228,12 @@ const Login = () => {
               Sign up
             </Link>
           </p>
-        </motion.div>
+        </div>
         <motion.div
-          variants={fadeIn("left", 0.2)}
+          variants={fadeIn("left", 0.05)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.7 }}
+          viewport={{ once: false, amount: 0.3 }}
           className="md:w-1/2 w-full"
         >
           <img

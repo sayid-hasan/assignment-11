@@ -4,17 +4,17 @@ import fadeIn from "../../Utilities/varient";
 
 const Footer = () => {
   return (
-    <motion.div
-      variants={fadeIn("right", 0.3)}
-      initial="hidden"
-      whileInView={"show"}
-      viewport={{ once: false, amount: 0.7 }}
-      className=" w-full"
-    >
-      <footer className="bg-white dark:bg-gray-900">
+    <div className=" w-full">
+      <footer className="bg-white dark:bg-gray-900 overflow-x-hidden">
         <div className="container p-6 mx-auto">
           <div className="lg:flex">
-            <div className="w-full -mx-6 lg:w-2/5">
+            <motion.div
+              variants={fadeIn("right", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className="w-full -mx-6 lg:w-2/5"
+            >
               <div className="px-6">
                 <Link to="/">
                   <h2 className="font-font-oswald">
@@ -74,11 +74,16 @@ const Footer = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             <div className="mt-6 lg:mt-0 lg:flex-1">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                <div>
+              <div className="grid grid-cols-2 gap-6   lg:grid-cols-4">
+                <motion.div
+                  variants={fadeIn("left", 0.1)}
+                  initial="hidden"
+                  whileInView={"show"}
+                  viewport={{ once: false, amount: 0.3 }}
+                >
                   <h3 className="text-[#F26767] uppercase font-font-oswald  dark:text-white">
                     About
                   </h3>
@@ -100,9 +105,14 @@ const Footer = () => {
                   >
                     Careers
                   </a>
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div
+                  variants={fadeIn("left", 0.15)}
+                  initial="hidden"
+                  whileInView={"show"}
+                  viewport={{ once: false, amount: 0.3 }}
+                >
                   <h3 className="text-[#F26767] uppercase font-font-oswald  dark:text-white">
                     Blogs
                   </h3>
@@ -124,9 +134,14 @@ const Footer = () => {
                   >
                     Videos
                   </a>
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div
+                  variants={fadeIn("left", 0.2)}
+                  initial="hidden"
+                  whileInView={"show"}
+                  viewport={{ once: false, amount: 0.3 }}
+                >
                   <h3 className="text-[#F26767] uppercase font-font-oswald  dark:text-white">
                     Products
                   </h3>
@@ -148,9 +163,14 @@ const Footer = () => {
                   >
                     Current affairs
                   </a>
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div
+                  variants={fadeIn("left", 0.25)}
+                  initial="hidden"
+                  whileInView={"show"}
+                  viewport={{ once: false, amount: 0.3 }}
+                >
                   <h3 className="text-[#F26767] uppercase font-font-oswald  dark:text-white">
                     Contact
                   </h3>
@@ -160,7 +180,7 @@ const Footer = () => {
                   <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">
                     Bloogys@email.com
                   </span>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -174,7 +194,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-    </motion.div>
+    </div>
   );
 };
 

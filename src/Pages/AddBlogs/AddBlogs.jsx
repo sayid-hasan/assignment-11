@@ -334,7 +334,7 @@ const AddBlogs = () => {
               initial={"hidden"}
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="block w-full p-3 text-center rounded-lg bg-[#F26767]  text-white font-bold  dark:text-gray-50 dark:bg-violet-600"
+              className="block w-full p-3 text-center border border-transparent rounded-lg bg-[#F26767]  text-white font-bold  dark:text-gray-50 hover:bg-transparent hover:text-black transition-all duration-300 hover:border-[#F26767] dark:bg-violet-600"
             >
               Add
             </motion.button>
@@ -347,11 +347,11 @@ const AddBlogs = () => {
         initial={"hidden"}
         whileInView={"show"}
         viewport={{ once: false, amount: 0.7 }}
-        className="w-full md:w-1/2 justify-self-end "
+        className=" w-full md:w-1/2 justify-self-end "
       >
         <img
-          src="https://i.ibb.co/3mTj2M5/add-blogs-2.jpg"
-          className="max-h-[530px] rounded-xl"
+          src="https://i.imgur.com/2QsjStR.jpg"
+          className="md:h-[535px] rounded-xl"
           alt=""
         />
       </motion.div>

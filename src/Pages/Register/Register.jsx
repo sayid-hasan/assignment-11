@@ -60,17 +60,17 @@ const Register = () => {
       <Helmet>
         <title>Sign Up</title>
       </Helmet>
-      <div className="flex flex-col-reverse md:flex-row  md:justify-between ">
-        <motion.div
-          variants={fadeIn("right", 0.2)}
-          initial={"hidden"}
-          whileInView={"show"}
-          viewport={{ once: false, amount: 0.7 }}
-          className="w-full my-5  md:w-1/2 p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800"
-        >
-          <h1 className="text-2xl font-font-oswald text-[#F26767] font-bold text-center">
+      <div className="flex flex-col-reverse md:flex-row  md:justify-between overflow-x-hidden">
+        <div className="w-full my-5  md:w-1/2 p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
+          <motion.h1
+            variants={fadeIn("right", 0.051)}
+            initial={"hidden"}
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.3 }}
+            className="text-2xl font-font-oswald text-[#F26767] font-bold text-center"
+          >
             Sign Up for more awsome features
-          </h1>
+          </motion.h1>
           <form
             onSubmit={handleSubmit(onSubmit)}
             noValidate=""
@@ -78,7 +78,13 @@ const Register = () => {
             className="space-y-6"
           >
             {/* Name */}
-            <div className="space-y-1 text-sm">
+            <motion.div
+              variants={fadeIn("right", 0.1)}
+              initial={"hidden"}
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className="space-y-1 text-sm"
+            >
               <label htmlFor="email" className="block dark:text-gray-600">
                 Name
               </label>
@@ -93,9 +99,15 @@ const Register = () => {
               <span className="font-semibold text-red-600">
                 {errors.name?.type === "required" && "Name is required"}
               </span>
-            </div>
+            </motion.div>
             {/* email */}
-            <div className="space-y-1 text-sm">
+            <motion.div
+              variants={fadeIn("right", 0.15)}
+              initial={"hidden"}
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className="space-y-1 text-sm"
+            >
               <label htmlFor="email" className="block dark:text-gray-600">
                 Email
               </label>
@@ -110,9 +122,15 @@ const Register = () => {
               <span className="font-semibold text-red-600">
                 {errors.email?.type === "required" && "Email is required"}
               </span>
-            </div>
+            </motion.div>
             {/* password */}
-            <div className="space-y-1 text-sm">
+            <motion.div
+              variants={fadeIn("right", 0.2)}
+              initial={"hidden"}
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className="space-y-1 text-sm"
+            >
               <label htmlFor="password" className="block dark:text-gray-600">
                 Password
               </label>
@@ -140,9 +158,15 @@ const Register = () => {
                 {errors.password?.type === "pattern" &&
                   "Password must have at least one uppercase letter, one special character and at least one digit, and be at least 6 characters long"}
               </span>
-            </div>
+            </motion.div>
             {/* photo URL */}
-            <div className="space-y-1 text-sm">
+            <motion.div
+              variants={fadeIn("right", 0.25)}
+              initial={"hidden"}
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className="space-y-1 text-sm"
+            >
               <label htmlFor="email" className="block dark:text-gray-600">
                 Photo URL
               </label>
@@ -157,11 +181,17 @@ const Register = () => {
               <span className="font-semibold text-red-600">
                 {errors.image?.type === "required" && "Photo URL is required"}
               </span>
-            </div>
+            </motion.div>
 
-            <button className="block w-full p-3 text-center rounded-lg bg-[#F26767]  text-white font-bold  dark:text-gray-50 dark:bg-violet-600">
+            <motion.button
+              variants={fadeIn("right", 0.28)}
+              initial={"hidden"}
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className="block w-full p-3 text-center border border-transparent rounded-lg bg-[#F26767]  text-white font-bold  dark:text-gray-50 hover:bg-transparent hover:text-black transition-all duration-300 hover:border-[#F26767] dark:bg-violet-600"
+            >
               Sign Up
-            </button>
+            </motion.button>
           </form>
 
           <p className="text-xs text-center sm:px-6 dark:text-gray-600">
@@ -173,17 +203,17 @@ const Register = () => {
               Sign in
             </Link>
           </p>
-        </motion.div>
+        </div>
         <motion.div
-          variants={fadeIn("left", 0.2)}
+          variants={fadeIn("left", 0.15)}
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.7 }}
+          viewport={{ once: false, amount: 0.3 }}
           className="md:w-1/2 w-full"
         >
           <img
-            src={"https://i.ibb.co/sswvKhD/login.jpg"}
-            className="md:h-[600px] md:w-[600px] w-full aspect-auto"
+            src={"https://i.imgur.com/t1RuSsO.jpg"}
+            className="md:h-[535px] md:w-[535px] w-full aspect-auto rounded-lg"
             alt=""
           />
         </motion.div>

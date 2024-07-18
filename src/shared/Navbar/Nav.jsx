@@ -130,7 +130,7 @@ const Nav = () => {
               <>
                 <Link
                   to="/login"
-                  className="self-center px-8 py-3 font-semibold rounded bg-[#F26767] text-white"
+                  className="self-center  w-full p-3 text-center border border-transparent rounded-lg bg-[#F26767]  text-white font-bold  dark:text-gray-50 hover:bg-transparent hover:text-black transition-all duration-300 hover:border-[#F26767] dark:bg-violet-600"
                 >
                   Sign in
                 </Link>
