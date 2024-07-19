@@ -3,6 +3,7 @@ import useAxios from "../../hooks/useAxios";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import Wishlist from "./Wishlist";
+import Swal from "sweetalert2";
 
 const Wishlists = () => {
   const { user } = useContext(AuthContext);
@@ -31,9 +32,28 @@ const Wishlists = () => {
 
   // deleting wishlist
   const handleDelete = async (idx) => {
-    const { data } = await axiosNonSecure.delete(`/wishlist/${idx}`);
-    console.log(data);
-    refetch();
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const { data } = await axiosNonSecure.delete(`/wishlist/${idx}`);
+        console.log(data);
+        if (data.deletedCount > 0) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+          refetch();
+        }
+      }
+    });
   };
 
   console.log(wishlists, user);

@@ -11,7 +11,7 @@ const NewsLetter = () => {
   };
   return (
     <div>
-      <section className="flex flex-col   overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 md:flex-row md:h-48 my-10">
+      <section className="flex flex-col   overflow-x-hidden  bg-white rounded-lg shadow-lg dark:bg-gray-800 md:flex-row md:h-48 my-10">
         <div className="md:flex md:items-center md:justify-center w-full md:w-1/2 md:bg-gray-700 md:dark:bg-gray-800">
           <div className="px-6 py-6 md:px-8 md:py-0">
             <h2 className="md:text-2xl text-lg mb-5 font-font-oswald font-bold text-gray-700 dark:text-white md:text-gray-100">

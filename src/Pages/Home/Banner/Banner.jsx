@@ -82,11 +82,11 @@ const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className=" relative">
-              <div className=" w-full">
+              <div className=" w-full ">
                 {" "}
                 <img
                   src={"https://i.imgur.com/nMEIi6v.jpg"}
-                  className="w-full"
+                  className="w-full "
                   alt=""
                 />
               </div>

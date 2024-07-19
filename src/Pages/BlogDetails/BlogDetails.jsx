@@ -98,27 +98,27 @@ const BlogDetails = () => {
 
       <div className="font-roboto mt-14 mb-12">
         <motion.h2
-          variants={fadeIn("right", 0.2)}
+          variants={fadeIn("right", 0.1)}
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.7 }}
+          viewport={{ once: false, amount: 0.25 }}
           className="text-center  text-[#F26766] font-font-oswald font-bold text-2xl md:text-4xl mb-5 "
         >
           Blog Details
         </motion.h2>
         <motion.div
-          variants={fadeIn("right", 0.1)}
+          variants={fadeIn("right", 0.13)}
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.7 }}
+          viewport={{ once: false, amount: 0.25 }}
           className="md:p-6 px-2 gap-7   flex md:flex-row flex-col  md:items-center "
         >
           {/* 1 */}
           <motion.div
-            variants={fadeIn("right", 0.2)}
+            variants={fadeIn("right", 0.16)}
             initial={"hidden"}
             whileInView={"show"}
-            viewport={{ once: false, amount: 0.7 }}
+            viewport={{ once: false, amount: 0.25 }}
             className=" w-full md:w-1/2 flex justify-center "
           >
             <img
@@ -128,10 +128,10 @@ const BlogDetails = () => {
           </motion.div>
           {/* 2 */}
           <motion.div
-            variants={fadeIn("left", 0.2)}
+            variants={fadeIn("left", 0.19)}
             initial={"hidden"}
             whileInView={"show"}
-            viewport={{ once: false, amount: 0.7 }}
+            viewport={{ once: false, amount: 0.25 }}
             className="md:w-1/2 w-full"
           >
             <h1 className="text-2xl md:text-3xl leading-loose space-y-2  font-bold">

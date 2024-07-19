@@ -74,7 +74,7 @@ const AddBlogs = () => {
     };
   }, [watch]);
   return (
-    <div className="  flex flex-col-reverse md:flex-row md:gap-12 md:justify-between items-center ">
+    <div className="  flex flex-col-reverse md:flex-row md:gap-12 md:justify-between items-center overflow-x-hidden ">
       <Helmet>
         <title>Add Blogs</title>
       </Helmet>
@@ -82,7 +82,7 @@ const AddBlogs = () => {
         variants={fadeIn("right", 0.1)}
         initial={"hidden"}
         whileInView={"show"}
-        viewport={{ once: false, amount: 0.7 }}
+        viewport={{ once: false, amount: 0.25 }}
         className="w-full md:w-1/2"
       >
         <div className="w-full   my-5 bg-[#05A081] bg-opacity-5 p-4 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
@@ -103,7 +103,7 @@ const AddBlogs = () => {
                 variants={fadeIn("right", 0.1)}
                 initial={"hidden"}
                 whileInView={"show"}
-                viewport={{ once: false, amount: 0.7 }}
+                viewport={{ once: false, amount: 0.25 }}
                 className="space-y-1 text-sm w-1/2"
               >
                 <label
@@ -134,7 +134,7 @@ const AddBlogs = () => {
                 variants={fadeIn("right", 0.2)}
                 initial={"hidden"}
                 whileInView={"show"}
-                viewport={{ once: false, amount: 0.7 }}
+                viewport={{ once: false, amount: 0.25 }}
                 className="space-y-1 text-sm w-1/2"
               >
                 <label htmlFor="image" className="block dark:text-gray-600">
@@ -166,7 +166,7 @@ const AddBlogs = () => {
                 variants={fadeIn("right", 0.1)}
                 initial={"hidden"}
                 whileInView={"show"}
-                viewport={{ once: false, amount: 0.7 }}
+                viewport={{ once: false, amount: 0.25 }}
                 className="space-y-1 text-sm w-1/2"
               >
                 <label
@@ -206,7 +206,7 @@ const AddBlogs = () => {
                 variants={fadeIn("right", 0.2)}
                 initial={"hidden"}
                 whileInView={"show"}
-                viewport={{ once: false, amount: 0.7 }}
+                viewport={{ once: false, amount: 0.25 }}
                 className="space-y-1 text-sm w-1/2"
               >
                 <label
@@ -234,7 +234,7 @@ const AddBlogs = () => {
                 variants={fadeIn("right", 0.1)}
                 initial={"hidden"}
                 whileInView={"show"}
-                viewport={{ once: false, amount: 0.7 }}
+                viewport={{ once: false, amount: 0.25 }}
                 className="space-y-1 text-sm w-1/2"
               >
                 <label
@@ -268,7 +268,7 @@ const AddBlogs = () => {
                 variants={fadeIn("right", 0.2)}
                 initial={"hidden"}
                 whileInView={"show"}
-                viewport={{ once: false, amount: 0.7 }}
+                viewport={{ once: false, amount: 0.25 }}
                 className="space-y-1 text-sm w-1/2"
               >
                 <label htmlFor="user_name" className="block dark:text-gray-600">
@@ -302,7 +302,7 @@ const AddBlogs = () => {
                 variants={fadeIn("right", 0.2)}
                 initial={"hidden"}
                 whileInView={"show"}
-                viewport={{ once: false, amount: 0.7 }}
+                viewport={{ once: false, amount: 0.25 }}
                 className="space-y-1 text-sm w-full"
               >
                 <label
@@ -333,7 +333,7 @@ const AddBlogs = () => {
               variants={fadeIn("right", 0.2)}
               initial={"hidden"}
               whileInView={"show"}
-              viewport={{ once: false, amount: 0.7 }}
+              viewport={{ once: false, amount: 0.25 }}
               className="block w-full p-3 text-center border border-transparent rounded-lg bg-[#F26767]  text-white font-bold  dark:text-gray-50 hover:bg-transparent hover:text-black transition-all duration-300 hover:border-[#F26767] dark:bg-violet-600"
             >
               Add
@@ -346,7 +346,7 @@ const AddBlogs = () => {
         variants={fadeIn("left", 0.2)}
         initial={"hidden"}
         whileInView={"show"}
-        viewport={{ once: false, amount: 0.7 }}
+        viewport={{ once: false, amount: 0.25 }}
         className=" w-full md:w-1/2 justify-self-end "
       >
         <img

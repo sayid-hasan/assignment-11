@@ -7,7 +7,9 @@ const MainLayout = () => {
     <div className="font-font-merriweather">
       <div className="max-w-[1250px] mx-auto ">
         <Nav></Nav>
-        <Outlet></Outlet>
+        <div className="min-h-[400px]">
+          <Outlet></Outlet>
+        </div>
       </div>
       <Footer></Footer>
     </div>
