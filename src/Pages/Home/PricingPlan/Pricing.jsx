@@ -126,7 +126,7 @@ const Pricing = () => {
                 </div>
               </div>
 
-              <button className="w-full px-4 py-2 mt-16 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#F26767] rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 ">
+              <button className="w-full px-6 border duration-300 border-transparent hover:text-black text-sm hover:bg-transparent hover:border hover:border-[#f26767] py-3 font-semibold rounded bg-[#F26767] text-white ">
                 Choose plan
               </button>
             </motion.div>
@@ -231,7 +231,7 @@ const Pricing = () => {
                 </div>
               </div>
 
-              <button className="w-full px-4 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#F26767] rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 ">
+              <button className="w-full px-6 border duration-300 border-transparent hover:text-black text-sm hover:bg-transparent hover:border hover:border-[#f26767] py-3 font-semibold rounded bg-[#F26767] text-white ">
                 Choose plan
               </button>
             </motion.div>
@@ -336,7 +336,7 @@ const Pricing = () => {
                 </div>
               </div>
 
-              <button className="w-full px-4 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#F26767] rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+              <button className="w-full px-6 border duration-300 border-transparent hover:text-black text-sm hover:bg-transparent hover:border hover:border-[#f26767] py-3 font-semibold rounded bg-[#F26767] text-white ">
                 Choose plan
               </button>
             </motion.div>
@@ -441,7 +441,7 @@ const Pricing = () => {
                 </div>
               </div>
 
-              <button className="w-full px-4 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#F26767] rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+              <button className="w-full px-6 border duration-300 border-transparent hover:text-black text-sm hover:bg-transparent hover:border hover:border-[#f26767] py-3 font-semibold rounded bg-[#F26767] text-white ">
                 Choose plan
               </button>
             </motion.div>

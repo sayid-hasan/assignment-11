@@ -109,13 +109,13 @@ const Blog = ({ blog }) => {
           >
             <Link
               to={`/blogs/${_id}`}
-              className="px-6 border border-transparent hover:text-black text-sm hover:bg-transparent hover:border hover:border-[#f26767] py-3 font-semibold rounded bg-[#F26767] text-white"
+              className="px-6 border duration-300 border-transparent hover:text-black text-sm hover:bg-transparent hover:border hover:border-[#f26767] py-3 font-semibold rounded bg-[#F26767] text-white"
             >
               See Details
             </Link>
             <button
               onClick={handleWishlist}
-              className="px-6 border border-[#f26767] hover:text-white text-sm hover:bg-[#f26767] hover:border-[#f26767] py-3 font-semibold rounded bg-transparent text-black "
+              className="px-6 border duration-300 border-[#f26767] hover:text-white text-sm hover:bg-[#f26767] hover:border-[#f26767] py-3 font-semibold rounded bg-transparent text-black "
             >
               Wishlist
             </button>
